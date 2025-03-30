@@ -1,122 +1,123 @@
-# Slick Portfolio With Svelte.
+# Personal Portfolio
 
-Vercel-like style portfolio template for developers.
+A modern, responsive portfolio website built with Svelte and TypeScript. This portfolio features a clean, Vercel-like design with dark/light mode support and showcases your skills, experience, projects, education, and certifications.
 
-### [Checkout Svelte 5 version is here](https://github.com/RiadhAdrani/slick-portfolio-svelte-5)
+## Features
 
-## Create
+- **Modern UI Design**: Clean, responsive interface with Vercel-inspired styling
+- **Multiple Sections**: Showcase your experience, education, projects, skills, and certifications
+- **Markdown Support**: Content sections support Markdown for rich formatting
+- **Responsive Layout**: Optimized for all device sizes
+- **Dark/Light Mode**: Automatic theme switching based on user preference
+- **Search Functionality**: Search across all portfolio content
+- **TypeScript Support**: Fully typed codebase for better development experience
+- **Fast Performance**: Built with Svelte for optimal speed and interactivity
 
-You can either clone or fork this repository :
+## Technologies Used
 
-### `fork`
+- **Svelte/SvelteKit**: Frontend framework
+- **TypeScript**: Type-safe JavaScript
+- **Vite**: Build tool and development server
+- **SCSS**: Styling with Sass preprocessor
+- **UnoCSS**: Atomic CSS engine
+- **Marked**: Markdown parsing
+- **DOMPurify**: Sanitize HTML content
+- **PrismJS**: Code syntax highlighting
+- **Day.js**: Date formatting
 
-You can fork the project, maintaining a link to the original repo using the `fork` button, make sure the check the `Copy the master branch only` checkbox.
+## Getting Started
 
-![alt text](./screenshots/image.png)
+### Prerequisites
 
-### `clone`
+- Node.js (v16 or newer)
+- npm or yarn
 
-- using `git` :
+### Installation
 
-```bash
-# ssh
-git clone git@github.com:RiadhAdrani/slick-portfolio-svelte.git protfolio
-
-# https
-git clone https://github.com/RiadhAdrani/slick-portfolio-svelte.git protfolio
-```
-
-- using `degit` npm executable :
-
-```bash
-npx degit RiadhAdrani/slick-portfolio-svelte portfolio
-```
-
-if you don't have `degit`, it will prompt you to accept, enter `y`.
-
-> You can add the main repo as another remote repo to maintain updates in the future.
->
-> ```bash
-> # ssh
-> git remote add main git@github.com:RiadhAdrani/slick-portfolio-svelte.git
-> ```
-
-## Deploy to GitHub pages
-
-Before deploying to `GitHub Pages`:
-
-### Enable workflows for `Forks`
-
-If you forked the repo, go to the `Actions` tab in the newly generated repository, and enable workflows, click on the green button `I understand my workflows, go ahead and enable them` :
-
-![alt text](./screenshots/enable-fork-workflow.png)
-
-### Actions Settings
-
-Allow `GitHub Pages` in your repo settings with correct permissions:
-  - go to your repo `Settings` > `Actions` > `General`
-  - in `Actions permissions` : make sure that `Allow all actions and reusable workflows` checkbox is checked
-
-![alt text](./screenshots/settings-actions.png)
-
-### svelte.config.js
-
-Depending on the name of your repository, you would like to set the `base` variable to that, starting with a leading slash like this:
-
-```js
-const base = '/slick-portfolio-svelte';
-```
-
-But if your repository name is the same as your Github domain name; my Github name is `RiadhAdrani` so my domain name is `riadhadrani.github.io` (lower cased), and so the special repository name is also `riadhadrani.github.io`: if that is the case, you need to set the base to an empty string
-
-```js
-const base = '';
-
-```
-
-### Launching the build and deploy workflow
-
-If you didn't commit and push the changes in the `svelte.config.js` yet, you can do that now, otherwise you can create an empty commit:
+1. Clone this repository:
 
 ```bash
-git commit --allow-empty -m "chore: trigger workflow"
+git clone <your-repo-url> portfolio
+cd portfolio
 ```
 
-and push it to your `master` or `main` branch.
+2. Install dependencies:
 
-In the `Actions` tab, make sure that the `Build and Deploy` workflow is successful (wait for it to complete): you should have at least one successfull workflow run:
+```bash
+npm install
+# or
+yarn
+```
 
-![alt text](./screenshots/build-and-deploy-action.png)
+3. Start the development server:
 
-### Enable GitHub pages
+```bash
+npm run dev
+# or
+yarn dev
+```
 
+4. Open your browser and navigate to `http://localhost:5174` (or the port shown in your terminal)
 
-- go to your repo's `Settings` > `Pages`
-- in Source section, select `Deploy from a branch`.
-- in Branch section, select `gh-pages` and `/ (root)` and click on save
+## Customization
 
-![alt text](./screenshots/enable-gh-pages.png)
+### Personal Information
 
-Again in the `Actions` tab, make sure that the `pages-build-deployment` workflow is successful (wait for it to complete): you should have at least one successfull workflow run:
+Update the following files in `src/lib/data/` to customize your portfolio:
 
-![alt text](./screenshots/pages-build-deployment-action.png)
+- `app.ts`: General application settings
+- `home.ts`: Home page content and contact information
+- `navbar.ts`: Navigation bar links
+- `experience.ts`: Work experience entries
+- `education.ts`: Educational background
+- `projects.ts`: Portfolio projects with descriptions and links
+- `skills.ts`: Technical skills and proficiency levels
+- `certifications.ts`: Professional certifications
+- `resume.ts`: Resume/CV information
 
-> If for some reason no action was launched, try pushing empty commit.
+### Styling
 
-## That's it
+- Update `src/lib/index.scss` for custom styling
+- Replace `static/favicon.ico` to customize the browser tab icon
+- Modify theme colors in the SCSS variables
 
-That's it, you can click on the latest deployment and visit it.
+### Assets
 
-## Adapt to your needs
+- Add your logos and images to the `static/logos/` directory
+- Reference them in your data files through the `assets.ts` file
 
-If you want to use the template as it is, you can :
+## Building for Production
 
-- update files in `src/lib/data` with your data.
-- update `src/lib/index.scss` for custom styling.
-- update `static/favicon.ico` to customize the tab's icon.
+To create a production build:
 
-But feel free to explore and hack the template to your needs if you feel like it.
+```bash
+npm run build
+# or
+yarn build
+```
 
-## Known issues:
+Preview the production build locally:
 
-- Svelte no longer support `node 14`, use a newer version instead.
+```bash
+npm run preview
+# or
+yarn preview
+```
+
+## Deployment
+
+This portfolio can be deployed to any static hosting service like GitHub Pages, Netlify, Vercel, or Cloudflare Pages.
+
+For GitHub Pages deployment, follow these steps:
+
+1. Update the `base` variable in `svelte.config.js` to match your repository name
+2. Push your changes to GitHub
+3. Enable GitHub Pages in your repository settings
+
+## License
+
+This project is based on the [slick-portfolio-svelte](https://github.com/RiadhAdrani/slick-portfolio-svelte) template.
+
+## Known Issues
+
+- Svelte no longer supports Node.js v14, use a newer version instead.
